@@ -27,7 +27,7 @@ const useWordle = (solution) => {
 
     // find any yellow colors
     formattedGuess.forEach((l, i) => {
-      if (solutionArray.includes(l.key) && l.color != "green") {
+      if (solutionArray.includes(l.key) && l.color !== "green") {
         formattedGuess[i].color = "yellow";
         solutionArray[solutionArray.indexOf(l.key)] = null;
       }
@@ -63,14 +63,14 @@ const useWordle = (solution) => {
           newKeys[l.key] = "green";
           return;
         }
-        if (l.color === "yellow" && currentColor != "green") {
+        if (l.color === "yellow" && currentColor !== "green") {
           newKeys[l.key] = "yellow";
           return;
         }
         if (
           l.color === "grey" &&
-          currentColor != "green" &&
-          currentColor != "yellow"
+          currentColor !== "green" &&
+          currentColor !== "yellow"
         ) {
           newKeys[l.key] = "grey";
           return;
